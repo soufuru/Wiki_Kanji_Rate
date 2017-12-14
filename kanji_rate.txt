@@ -1,0 +1,260 @@
+
+elapsed_time:2.191969871520996[sec]
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import fileinput
+import json
+import re
+import time
+import unicodedata as ud
+
+if __name__ == '__main__':
+
+    # タイマースタート
+    start = time.time()
+
+    result = []
+
+    for line in fileinput.input("-"):
+        kanji = 0
+        chara = 0
+
+        obj = json.loads(line)
+
+        dst = str(obj["text"]).replace(" ", "")
+        dst = dst.replace(r"[", "")
+        dst = dst.replace(r"]", "")
+        dst = dst.replace(r"{", "")
+        dst = dst.replace(r"}", "")
+        dst = dst.replace(r"=", "")
+        dst = re.sub(r"<.*>", "", dst)
+
+        for ch in dst:
+            name = ud.name(ch, "error")
+            if "CJK UNIFIED" in name:
+                kanji += 1
+            chara += 1
+
+        result.append([obj["title"], format((kanji/ chara), "1f")])
+
+    # result.sort()
+    result = dict(result)
+
+    # print(result)
+    # 経過時間表示
+    elapsed_time = time.time() - start
+    print("\nelapsed_time:{0}".format(elapsed_time) + "[sec]")
+
+elapsed_time:2.2101852893829346[sec]
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import fileinput
+import json
+import re
+import time
+import unicodedata as ud
+
+if __name__ == '__main__':
+
+    # タイマースタート
+    start = time.time()
+
+    result = []
+
+    for line in fileinput.input("-"):
+        kanji = 0
+        chara = 0
+
+        obj = json.loads(line)
+
+        dst = str(obj["text"]).replace(" ", "")
+        dst = dst.replace(r"[", "")
+        dst = dst.replace(r"]", "")
+        dst = dst.replace(r"{", "")
+        dst = dst.replace(r"}", "")
+        dst = dst.replace(r"=", "")
+        dst = re.sub(r"<.*>", "", dst)
+
+        for ch in dst:
+            name = ud.name(ch, "error")
+            if "CJK UNIFIED" in name:
+                kanji += 1
+            chara += 1
+
+        result.append([obj["title"], format((kanji/ chara), "1f")])
+
+    # result.sort()
+    result = dict(result)
+
+    # print(result)
+    # 経過時間表示
+    elapsed_time = time.time() - start
+    print("\nelapsed_time:{0}".format(elapsed_time) + "[sec]")
+
+elapsed_time:2.1722989082336426[sec]
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import fileinput
+import json
+import re
+import time
+import unicodedata as ud
+
+if __name__ == '__main__':
+
+    # タイマースタート
+    start = time.time()
+
+    result = []
+
+    for line in fileinput.input("-"):
+        kanji = 0
+        chara = 0
+
+        obj = json.loads(line)
+
+        dst = str(obj["text"]).replace(" ", "")
+        dst = dst.replace(r"[", "")
+        dst = dst.replace(r"]", "")
+        dst = dst.replace(r"{", "")
+        dst = dst.replace(r"}", "")
+        dst = dst.replace(r"=", "")
+        dst = re.sub(r"<.*>", "", dst)
+
+        for ch in dst:
+            name = ud.name(ch, "error")
+            if "CJK UNIFIED" in name:
+                kanji += 1
+            chara += 1
+
+        result.append([obj["title"], format((kanji/ chara), "1f")])
+
+    # result.sort()
+    result = dict(result)
+
+    # print(result)
+    # 経過時間表示
+    elapsed_time = time.time() - start
+    print("\nelapsed_time:{0}".format(elapsed_time) + "[sec]")
+
+elapsed_time:2.149860143661499[sec]
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import fileinput
+import json
+import re
+import time
+import unicodedata as ud
+
+if __name__ == '__main__':
+
+    # タイマースタート
+    start = time.time()
+    result = []
+
+    for line in fileinput.input("-"):
+        kanji = 0
+        chara = 0
+
+        obj = json.loads(line)
+
+        dst = str(obj["text"]).replace(" ", "")
+        dst = dst.replace(r"[", "").replace(r"]", "").replace(r"{", "").replace(r"=", "")
+        dst = re.sub(r"<.*>", "", dst)
+
+        for ch in dst:
+            name = ud.name(ch, "error")
+            if "CJK UNIFIED" in name:
+                kanji += 1
+            chara += 1
+
+        result.append([obj["title"], format((kanji/ chara), "1f")])
+
+    # result.sort()
+    result = dict(result)
+
+    # 経過時間表示
+    elapsed_time = time.time() - start
+    print("\nelapsed_time:{0}".format(elapsed_time) + "[sec]")
+
+elapsed_time:2.2179601192474365[sec]
+
+elapsed_time:2.1876380443573[sec]
+
+elapsed_time:2.1535089015960693[sec]
+
+elapsed_time:2.126617193222046[sec]
+
+elapsed_time:2.19938588142395[sec]
+
+elapsed_time:2.1614649295806885[sec]
+
+elapsed_time:2.154482364654541[sec]
+
+elapsed_time:2.1626060009002686[sec]
+
+elapsed_time:2.2008721828460693[sec]
+
+elapsed_time:2.1249358654022217[sec]
+
+elapsed_time:2.1250860691070557[sec]
+
+elapsed_time:2.230081081390381[sec]
+
+elapsed_time:2.1382620334625244[sec]
+
+elapsed_time:2.1492669582366943[sec]
+
+elapsed_time:2.122080087661743[sec]
+
+elapsed_time:2.1163201332092285[sec]
+
+elapsed_time:2.136488914489746[sec]
+
+elapsed_time:2.180785894393921[sec]
+
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import fileinput
+import json
+import re
+import time
+import unicodedata as ud
+
+if __name__ == '__main__':
+
+    # タイマースタート
+    start = time.time()
+    result = []
+
+    for line in fileinput.input("-"):
+        kanji = 0
+        chara = 0
+
+        obj = json.loads(line)
+
+        dst = str(obj["text"]).replace(" ", "").replace(r"[", "").replace(r"]", "").replace(r"{", "")
+        dst = re.sub(r"<.*>", "", dst)
+        dst = re.sub(r"==+", "", dst)
+
+        for ch in dst:
+            name = ud.name(ch, "error")
+            if "CJK UNIFIED" in name:
+                kanji += 1
+            chara += 1
+
+        result.append([obj["title"], format((kanji/ chara), "1f")])
+
+    # 経過時間表示
+    elapsed_time = time.time() - start
+    print("\nelapsed_time:{0}".format(elapsed_time) + "[sec]")
+
+    # result.sort()
+    result = dict(result)
+
+elapsed_time:2.506462812423706[sec]
