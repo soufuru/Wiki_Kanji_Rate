@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 
 import fileinput
-import json
-import re
 import time
 import unicodedata as ud
+
+rm_process = __import__("remove_markup")
 
 if __name__ == '__main__':
 
@@ -17,11 +17,7 @@ if __name__ == '__main__':
         kanji = 0
         chara = 0
 
-        obj = json.loads(line)
-
-        dst = str(obj["text"]).replace(" ", "").replace(r"[", "").replace(r"]", "").replace(r"{", "")
-        dst = re.sub(r"<.*>", "", dst)
-        dst = re.sub(r"==+", "", dst)
+        dst, obj = rm_process.remove(line)
 
         for ch in dst:
             name = ud.name(ch, "error")
@@ -29,7 +25,8 @@ if __name__ == '__main__':
                 kanji += 1
             chara += 1
 
-        result.append([obj["title"], format((kanji / chara), "1f")])
+        print(obj["title"] + format((kanji / chara), "1f"))
+        # result.append([obj["title"], format((kanji / chara), "1f")])
 
     # 経過時間表示
     elapsed_time = time.time() - start
