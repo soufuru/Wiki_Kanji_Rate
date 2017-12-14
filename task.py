@@ -20,12 +20,11 @@ if __name__ == '__main__':
         dst, obj = rm_process.remove(line)
 
         for ch in dst:
-            name = ud.name(ch, "error")
-            if "CJK UNIFIED" in name:
+            if "CJK UNIFIED" in ud.name(ch, "error"):
                 kanji += 1
             chara += 1
 
-        print(obj["title"] + format((kanji / chara), "1f"))
+        # print(obj["title"] + format((kanji / chara), "1f"))
         # result.append([obj["title"], format((kanji / chara), "1f")])
 
     # 経過時間表示
