@@ -11,4 +11,6 @@ if __name__ == '__main__':
     for line in fileinput.input("-"):
 
         dst, obj = rm_process.remove(line)
-        print(dst)
+
+        if obj["title"] == "イギリス":
+            print(dst)

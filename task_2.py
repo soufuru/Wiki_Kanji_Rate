@@ -23,7 +23,7 @@ if __name__ == '__main__':
             if matchOB:
                 kanji += 1
             chara += 1
-        print(obj["title"] + format((kanji / chara), "1f"))
+        # print(obj["title"] + format((kanji / chara), "1f"))
         # result.append([obj["title"], format((kanji / chara), "1f")])
 
     # 経過時間表示
