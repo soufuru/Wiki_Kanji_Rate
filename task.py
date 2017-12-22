@@ -5,6 +5,10 @@ import fileinput
 import time
 import unicodedata as ud
 
+import matplotlib.font_manager
+import matplotlib.pyplot as plt
+import numpy as np
+
 rm_process = __import__("remove_markup")
 
 if __name__ == '__main__':
@@ -25,11 +29,36 @@ if __name__ == '__main__':
             chara += 1
 
         # print(obj["title"] + format((kanji / chara), "1f"))
-        # result.append([obj["title"], format((kanji / chara), "1f")])
+        result.append([obj["title"], float(format((kanji / chara), "1f"))])
 
     # 経過時間表示
     elapsed_time = time.time() - start
     print("\nelapsed_time:{0}".format(elapsed_time) + "[sec]")
 
-    # result.sort()
+    # グラフ表示関連
+
     result = dict(result)
+    result = sorted(result.items(), key=lambda x: x[1])
+    result.reverse()
+
+    x = []
+    y = []
+
+    r = len(result)
+    for i in range(r):
+        x.insert(0, result[i][0])
+        y.insert(0, result[i][1])
+
+    plt.rcParams["figure.figsize"] = [18, 7]  # グラフのサイズを指定
+    plt.rcParams['font.family'] = 'AppleGothic'  # 全体のフォントを設定
+    fontprop = matplotlib.font_manager.FontProperties(fname="/Library/Fonts/Arial Unicode.ttf")
+    plt.rcParams['font.size'] = 10
+
+    plt.title(u"Wikipedia JSONデータの各記事における漢字を含む割合 TOP{}".format(r), fontproperties=fontprop)
+    plt.barh(range(len(y)), y, height=0.4, align="center")
+    y_loc = np.array(range(len(y)))
+
+    fontsize = 250 / r
+    plt.yticks(y_loc, x, rotation="horizontal", fontproperties=fontprop, fontsize=fontsize)
+
+    plt.show()

@@ -23,6 +23,9 @@ if __name__ == '__main__':
             if matchOB:
                 kanji += 1
             chara += 1
+
+        print(obj["title"] + " :\t" + str(kanji))
+
         # print(obj["title"] + format((kanji / chara), "1f"))
         # result.append([obj["title"], format((kanji / chara), "1f")])
 
