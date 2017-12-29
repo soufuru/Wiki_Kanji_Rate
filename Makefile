@@ -5,7 +5,7 @@ default: jawiki-country.json ${ARG} kanji_rate.txt
 	cat jawiki-country.json | python3 ${ARG} | tee -a kanji_rate.txt
 
 #出力のみ
-only: jawiki-country.json ${ARG} kanji_rate.txt
+only: jawiki-country.json ${ARG}
 	cat jawiki-country.json | python3 ${ARG}
 
 

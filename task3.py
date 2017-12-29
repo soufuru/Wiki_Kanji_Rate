@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 import fileinput
 import time
-import unicodedata as ud
 
 import matplotlib.font_manager
 import matplotlib.pyplot as plt
@@ -25,11 +27,11 @@ if __name__ == '__main__':
 
         # 漢字判定
         for ch in dst:
-            if "CJK UNIFIED" in ud.name(ch, "error"):
+            if 19968 <= ord(ch) <= 40869:
                 kanji += 1
             chara += 1
 
-        # print(obj["title"] + format((kanji / chara), "1f"))
+        print(obj["title"] + format((kanji / chara), "1f"))
         result.append([obj["title"], float(format((kanji / chara), "1f"))])
 
     # 経過時間表示
