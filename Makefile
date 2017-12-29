@@ -9,7 +9,7 @@ only: jawiki-country.json ${ARG}
 	cat jawiki-country.json | python3 ${ARG}
 
 
-#コードを変更した場合に使うほう
+#コードを変更した場合に使う奴
 add: jawiki-country.json ${ARG} kanji_rate.txt
 	echo -e "\n" >> kanji_rate.txt
 	cat task.py >> kanji_rate.txt
