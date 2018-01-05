@@ -18,7 +18,7 @@ if __name__ == '__main__':
 
     for line in fileinput.input("-"):
         kanji = 0
-        chara = 0
+        wordCount = 0
 
         dst, obj = rm_process.remove(line)
 
@@ -26,11 +26,10 @@ if __name__ == '__main__':
             matchOB = re.match('[一-龥]', ch)
             if matchOB:
                 kanji += 1
-            chara += 1
+            wordCount += 1
 
-        print(obj["title"] + ":" + format((kanji / chara), "1f"))
-
-        result.append([obj["title"], format((kanji / chara), "1f")])
+        # print(obj["title"] + ":" + format((kanji / chara), "1f"))
+        result.append([obj["title"], float(format((kanji / wordCount), "1f"))])
 
     # 経過時間表示
     elapsed_time = time.time() - start
