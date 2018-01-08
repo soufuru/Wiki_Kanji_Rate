@@ -36,7 +36,6 @@ if __name__ == '__main__':
     print("\nelapsed_time:{0}".format(elapsed_time) + "[sec]")
 
     # グラフ表示関連
-
     result = dict(result)
     result = sorted(result.items(), key=lambda x: x[1])
     result.reverse()

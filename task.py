@@ -25,7 +25,7 @@ if __name__ == '__main__':
 
         # 漢字判定
         for ch in dst:
-            if "CJK UNIFIED" in ud.name(ch, "error"):
+            if "CJK" in ud.name(ch, "error"):
                 kanji += 1
             wordCount += 1
 

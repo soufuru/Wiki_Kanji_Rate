@@ -31,7 +31,7 @@ if __name__ == '__main__':
                 kanji += 1
             wordCount += 1
 
-        print(obj["title"] + format((kanji / wordCount), "1f"))
+        # print(obj["title"] + format((kanji / wordCount), "1f"))
         result.append([obj["title"], float(format((kanji / wordCount), "1f"))])
 
     # 経過時間表示
