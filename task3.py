@@ -34,6 +34,8 @@ if __name__ == '__main__':
         # print(obj["title"] + format((kanji / wordCount), "1f"))
         result.append([obj["title"], float(format((kanji / wordCount), "1f"))])
 
+
+
     # 経過時間表示
     elapsed_time = time.time() - start
     print("\nelapsed_time:{0}".format(elapsed_time) + "[sec]")
@@ -41,6 +43,7 @@ if __name__ == '__main__':
     # グラフ表示関連
 
     result = dict(result)
+    del result["アイルランド"]
     result = sorted(result.items(), key=lambda x: x[1])
     result.reverse()
 
